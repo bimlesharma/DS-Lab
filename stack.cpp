@@ -1,52 +1,69 @@
+// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 
 #define MAX_SIZE 100
 
-class Stack {
+class Stack
+{
 private:
     int arr[MAX_SIZE];
     int top;
 
 public:
-    Stack() {
+    Stack()
+    {
         top = -1;
     }
-
-    void push(int x) {
-        if (top == MAX_SIZE - 1) {
+    void push(int x)
+    {
+        if (top == MAX_SIZE - 1)
+        {
             cout << "Error: Stack overflow\n";
             return;
         }
         arr[++top] = x;
     }
+    
 
-    void pop() {
-        if (top == -1) {
+    void pop()
+    {
+        if (top == -1)
+        {
             cout << "Error: Stack underflow\n";
             return;
         }
         top--;
     }
 
-    int peek() {
-        if (top == -1) {
+    int peek()
+    {
+        if (top == -1)
+        {
             cout << "Error: Stack is empty\n";
             return -1;
         }
         return arr[top];
     }
 
-    bool isEmpty() {
+    bool isEmpty()
+    {
         return top == -1;
     }
 };
 
-int main() {
+int main()
+{
     Stack s;
     s.push(1);
     s.push(2);
     s.push(3);
+    s.push(4);
+    s.push(5);
+    cout << s.peek() << endl; // Output: 5
+    s.pop();
+    cout << s.peek() << endl; // Output: 4
+    s.pop();
     cout << s.peek() << endl; // Output: 3
     s.pop();
     cout << s.peek() << endl; // Output: 2
